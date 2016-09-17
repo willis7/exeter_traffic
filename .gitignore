@@ -1,4 +1,4 @@
 *.csv
-*.checkpoint.ipynb
+/.ipynb_checkpoints
 /data
 /plots

@@ -1,4 +1,3 @@
 *.csv
+*.png
 /notebooks/.ipynb_checkpoints
-/data
-/plots

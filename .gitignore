@@ -1,3 +1,4 @@
 *.csv
 *.png
+*.pdf
 /notebooks/.ipynb_checkpoints

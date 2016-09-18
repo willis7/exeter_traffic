@@ -15,8 +15,7 @@ from mpl_toolkits.basemap import Basemap
 # list
 #years = ['2014','2013','2012','2011','2010','2009','2008','2007',
  #'2006','2005','2004','2003','2002','2001','2000']
-years = ['2010','2009','2008','2007',
- '2006','2005','2004','2003','2002','2001','2000']
+years = ['2014']
 
 
 for year in years:
@@ -50,7 +49,7 @@ for year in years:
 
             markersize = road_coords[m+"%"][road_coords["CP"] == CP].tolist()[0]
 
-            map.plot(x, y, 'o', color = colors[i], markersize=markersize*120)
+            map.plot(x, y, 'o', color = colors[i], markersize=markersize*200)
 
         plt.title('Relative AADF for %s %s'%(m,year))    
 

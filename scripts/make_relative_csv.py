@@ -51,11 +51,8 @@ for year in years:
     for m in mode:
        
        exeter_year[m+"%"] = exeter_year[m]/exeter_year[m].sum()
-        
-    
-    # output exeter_year to be used to make barplots for each road
-    exeter_year.to_csv("../data/exeter_")
-    
+       
+     
     # import the mapping data from road_coords.csv
     road_coords = pd.read_csv("../data/road_coords.csv", header = 0)
 

@@ -25,7 +25,7 @@ for transport_type in transport:
     print(group[transport_type])
     
     # fit a regression line
-    model = sm.OLS(data_group["mean"],exeter_data["AADFYear"].unique())
+    model = sm.OLS(data_group["mean"],sm.add_constant(exeter_data["AADFYear"].unique()))
 
     f = model.fit()
     
@@ -37,7 +37,7 @@ for transport_type in transport:
 
     ax.set(ylabel="Mean AAHD", title = "Mean flow of %s in Exeter City Roads" %transport_type)
     
-    #plt.plot(f.fittedvalues)
+    plt.plot(f.fittedvalues,'--')
 
     plt.fill_between(data_group.index, (data_group['mean'] + data_group['std']), 
                  (data_group['mean'] - data_group['std']), color = 'b', alpha = 0.2) 
@@ -54,12 +54,11 @@ for transport_type in transport:
     
     
     print(f.summary)
-    #print(round(f.rsquared,3))
-    
+     
     
     
     # Annotate with the slope and confidence interval
-    plt.text(2000,int(plot_y_slope),"slope = %s"%str(round(f.params[0],3)))
+    #plt.text(2000,int(plot_y_slope),"slope = %s"%str(round(f.params[0],3)))
     plt.text(2000,int(plot_y_r),"$r^2$ = %s"%str(round(f.rsquared,3))) 
     plt.text(2000,int(plot_y_conf),"conf_int = %s - %s"%(str(round(f.conf_int()[0][0],3)), 
                                                          str(round(f.conf_int()[1][0],3))))

@@ -1,4 +1,4 @@
-# exeter_traffic
+# Road use in Exeter
 Exploring Estimated Average Daily Flows (AADFs) in Exeter with data from 2000 - 2014.
 
 Using [Jupyter Notebook](http://jupyter.org/) with the Anaconda (2.4.1) Python 3.5.

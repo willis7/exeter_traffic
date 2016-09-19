@@ -5,11 +5,11 @@ Using [Jupyter Notebook](http://jupyter.org/) with the Anaconda (2.4.1) Python 3
 
 If you use these scripts I assume you have a local copy of `AADF_Devon_VehicleFlows.csv` and `Exeter_box.csv`. I can provide if needed. 
 
-1) The first thing you need to do is run [notebooks/Exeter_area.ipynb](/notebooks/Exeter_area.ipynb) to create a subset of data for Exeter 
+1) The first thing you need to do is run [Exeter_area.ipynb](/notebooks/Exeter_area.ipynb) to create a subset of data for Exeter 
 using AADF_Devon_VehicleFlows.csv
 
 
-2) The second thing is [/scripts/make_relative_csv.py](/scripts/make_relative_csv.py) should be run next to create some more data subsets 
+2) The second thing is [make_relative_csv.py](/scripts/make_relative_csv.py) should be run next to create some more data subsets 
 which the other scripts can pull from.   
 
 Once you have run the two scripts above, you should be able to run any of the following scripts, and make adjustments (focusing on 

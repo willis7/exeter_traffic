@@ -9,7 +9,7 @@ These scripts use the data files `AADF_Devon_VehicleFlows.csv` and `Exeter_box.c
 using `AADF_Devon_VehicleFlows.csv`.
 
 
-2) Next, [make_relative_csv.py](/scripts/make_relative_csv.py) should be run next to create some more data subsets 
+2) Next, run [make_relative_csv.py](/scripts/make_relative_csv.py) to create some more data subsets 
 which the other scripts can pull from.   
 
 Once you have done 1) and 2) you should be able to run any of the following scripts, and make adjustments (focusing on 
@@ -30,7 +30,7 @@ network.
 
 Initial exploration and working that went into making the scripts described above. 
 
-`Exeter_area.ipynb` - Looking at different Road types - there are 4 distinct types in Exeter. Explores the zero values in the cyclist data 
+`Exeter_area.ipynb` - Looking at different road types - there are 4 distinct types in Exeter. Explores the zero values in the cyclist data 
 and also makes some initial scatter plots by Vehicle type. 
   
          
@@ -55,9 +55,9 @@ longitude which is how the maps with road data is overlayed. This is included in
 
 Other scripts which specifically focus on:
 
-1) Just outer roads - /scripts/Outer      
-2) Just inner roads - /scripts/Inner        
-3) Data without cars (to get a better look at less frequent transport modes, particularly in the city) -  /scripts/NoCars   
+1) Just outer roads - `/scripts/Outer`      
+2) Just inner roads - `/scripts/Inner`        
+3) Data without cars (to get a better look at less frequent transport modes, particularly in the city) -  `/scripts/NoCars`   
 
 
 

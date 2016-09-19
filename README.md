@@ -28,7 +28,7 @@ network.
 
 ### Notebooks
 
-All of the initially exploration and working that went into making the scripts described above. 
+Initial exploration and working that went into making the scripts described above. 
 
 `Exeter_area.ipynb` - Looking at different Road types - there are 4 distinct types in Exeter. Explores the zero values in the cyclist data 
 and also makes some initial scatter plots by Vehicle type. 
@@ -55,9 +55,9 @@ longitude which is how the maps with road data is overlayed. This is included in
 
 Other scripts which specifically focus on:
 
-1) Just outer roads - /scripts/Outer
-2) Just inner roads - /scripts/Inner
-3) Data without cars (to get a better look at less frequent transport modes, particularly in the city). /scripts/NoCars
+1) Just outer roads - /scripts/Outer   
+2) Just inner roads - /scripts/Inner    
+3) Data without cars (to get a better look at less frequent transport modes, particularly in the city). /scripts/NoCars   
 
 
 

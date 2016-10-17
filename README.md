@@ -5,7 +5,7 @@ Using [Jupyter Notebook](http://jupyter.org/) with the Anaconda (2.4.1) Python 3
 
 These scripts use the data files `Exeter_city_only` and `Exeter_box.csv`. I can provide if needed.
 
-** Before you start**
+**Before you start**
 
 Create the environment for exeter_traffic:
 

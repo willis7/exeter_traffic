@@ -4,7 +4,8 @@
 
 import pandas as pd
 import numpy as np
-import seaborn as sns 
+import seaborn as sns
+import os
 import matplotlib.pyplot as plt
 
 # read in all the data make a bar plot for each road
@@ -62,6 +63,11 @@ for year in years:
     plt.title('Road useage by vehicle type %s'%str(year))
     
     fig = plt.gcf()
+
+    directory = "../plots/barplots/all_roads/relative/"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
     fig.savefig('../plots/barplots/all_roads/relative/Allroads_barplot%s_relative.png'%str(year))
     
      
@@ -103,6 +109,11 @@ for year in years:
     plt.title('Inner Road useage by vehicle type %s'%str(year))
     
     fig = plt.gcf()
+
+    directory = "../plots/barplots/inner_roads/relative/"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
     fig.savefig('../plots/barplots/inner_roads/relative/inner_barplot%s_relative.png'%str(year))
     
     ########## Outer
@@ -136,6 +147,10 @@ for year in years:
     plt.title('Outer Road useage by vehicle type %s'%str(year))
     
     fig = plt.gcf()
+
+    directory = "../plots/barplots/outer_roads/"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
     fig.savefig('../plots/barplots/outer_roads/outer_barplot%s_relative.png'%str(year))
     
        

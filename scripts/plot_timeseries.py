@@ -63,5 +63,9 @@ for transport_type in transport:
     plt.text(2000,int(plot_y_conf),"conf_int = %s - %s"%(str(round(f.conf_int()[0][0],3)), 
                                                          str(round(f.conf_int()[1][0],3))))
     fig = ax.get_figure()
+    
+    directory = "../plots/tseries"
+    if not os.path.exists(directory):
+        os.makedirs(directory
 
     fig.savefig('../plots/tseries/%s_tseries.png'%transport_type)

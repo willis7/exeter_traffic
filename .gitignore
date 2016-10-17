@@ -2,3 +2,4 @@ AADF_Devon_VehicleFlows.csv
 *.png
 *.pdf
 /notebooks/.ipynb_checkpoints
+/data/road_coords_norm*.csv

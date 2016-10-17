@@ -2,7 +2,7 @@
 # make plots in plot_relative_maps.py
 
 # You need to run
-
+import os
 import pandas as pd
 import numpy as np
 import seaborn as sns 
@@ -10,25 +10,33 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 
 
-# data is in the data directory.
-data = pd.read_csv("../data/AADF_Devon_VehicleFlows.csv", header = 0)
+# check to see if we have Exeter_city_only.csv already
+# if not, create it
+path = "../data/Exeter_city_only.csv"
+if os.path.isfile(path) == False:
 
-# I used http://www.gridreferencefinder.com/ to get these coordinates. I manually drew a box and 
-# made pointers for the 
-# four corners of the box
-exeter_coords = pd.read_csv("../data/Exeter_box.csv", header = 0)
+    # data is in the data directory.
+    data = pd.read_csv("../data/AADF_Devon_VehicleFlows.csv", header = 0)
 
-max_east = max(exeter_coords["Easting"])
-max_north = max(exeter_coords["Northing"])
-min_east = min(exeter_coords["Easting"])
-min_north = min(exeter_coords["Northing"])
+    # I used http://www.gridreferencefinder.com/ to get these coordinates. I manually drew a box and 
+    # made pointers for the 
+    # four corners of the box
+    exeter_coords = pd.read_csv("../data/Exeter_box.csv", header = 0)
 
-# extracting data just for Exeter using the max and min coordinates above.
-exeter_data = data[(data["Easting"] > min_east) & (data["Easting"] < max_east) & (data["Northing"] 
-> min_north) & (data["Northing"] < max_north) ]
+    max_east = max(exeter_coords["Easting"])
+    max_north = max(exeter_coords["Northing"])
+    min_east = min(exeter_coords["Easting"])
+    min_north = min(exeter_coords["Northing"])
 
-# Save data_exeter for future use
-exeter_data.to_csv("../data/Exeter_city_only.csv", index=False)
+    # extracting data just for Exeter using the max and min coordinates above.
+    exeter_data = data[(data["Easting"] > min_east) & (data["Easting"] < max_east) & (data["Northing"] 
+    > min_north) & (data["Northing"] < max_north) ]
+
+    # Save data_exeter for future use
+    exeter_data.to_csv("../data/Exeter_city_only.csv", index=False)
+
+else: # read in the already created file
+    exeter_data = pd.read_csv("../data/Exeter_city_only.csv", header = 0)  
 
 # We want to make a seperate file for each year. Store the years in a list to 
 # loop over

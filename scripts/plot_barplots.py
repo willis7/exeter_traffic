@@ -36,6 +36,10 @@ for year in years:
     plt.title('Road useage by vehicle type (CPs) %s'%str(year))
     
     fig = plt.gcf()
+    
+    directory = "../plots/barplots/all_roads"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
     fig.savefig('../plots/barplots/all_roads/eachCP_%s.png'%str(year))
 
@@ -52,6 +56,12 @@ for year in years:
     plt.title('Inner Road useage by vehicle type %s'%str(year))
     
     fig = plt.gcf()
+    
+    
+    directory = "../plots/barplots/inner_roads"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    
     fig.savefig('../plots/barplots/inner_roads/inner_barplot%s.png'%str(year))
     
     # Outer
@@ -62,6 +72,12 @@ for year in years:
     plt.title('Outer Road useage by vehicle type %s' %str(year))
     
     fig = plt.gcf()
+    
+    
+    directory = "../plots/barplots/outer_roads"
+    if not os.path.exists(directory):
+        os.makedirs(directory
+    
     fig.savefig('../plots/barplots/outer_roads/outer_barplot%s.png'%str(year))
     
     # Group all roads
@@ -70,6 +86,11 @@ for year in years:
     group_year.plot.bar(stacked = True)
     plt.title('All Road useage by vehicle type %s' %str(year))
     fig = plt.gcf()
+    
+    directory = "../plots/barplots/all_roads"
+    if not os.path.exists(directory):
+        os.makedirs(directory
+  
     fig.savefig('../plots/barplots/all_roads/each_road_barplot%s.png'%str(year))
     
     # Make a plot normalised over each road. 

@@ -1,4 +1,4 @@
-*.csv
+AADF_Devon_VehicleFlows.csv
 *.png
 *.pdf
 /notebooks/.ipynb_checkpoints

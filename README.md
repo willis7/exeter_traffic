@@ -3,16 +3,19 @@ Exploring Estimated Average Daily Flows (AADFs) in Exeter with data from 2000 - 
 
 Using [Jupyter Notebook](http://jupyter.org/) with the Anaconda (2.4.1) Python 3.5.
 
-These scripts use the data files `AADF_Devon_VehicleFlows.csv` and `Exeter_box.csv`. I can provide if needed. 
+These scripts use the data files `Exeter_city_only` and `Exeter_box.csv`. I can provide if needed.
 
-1) Run [Exeter_area.ipynb](/notebooks/Exeter_area.ipynb) to create a subset of data for Exeter 
-using `AADF_Devon_VehicleFlows.csv`.
+** Before you start**
 
+Create the environment for exeter_traffic:
 
-2) Next, run [make_relative_csv.py](/scripts/make_relative_csv.py) to create some more data subsets 
+Inside exeter_traffic:
+conda env create -n py35 python=3.5 -f environment.yml --name exeter_traffic
+
+Run [make_relative_csv.py](/scripts/make_relative_csv.py) to create some more data subsets
 which the other scripts can pull from.   
 
-Once you have done 1) and 2) you should be able to run any of the following scripts, and make adjustments (focusing on 
+Once you have done the above you should be able to run any of the following scripts, and make adjustments (focusing on
 different years for example). You should also adjust the input/output folders in the following scripts. 
 
 ### Scripts
@@ -30,9 +33,6 @@ network.
 
 Initial exploration and working that went into making the scripts described above. 
 
-`Exeter_area.ipynb` - Looking at different road types - there are 4 distinct types in Exeter. Explores the zero values in the cyclist data 
-and also makes some initial scatter plots by Vehicle type. 
-  
          
 `Exeter_traffic_data_exploration.ipynb` - Initially looking at data for all of Devon before working out how to make the subset for Exeter.
 

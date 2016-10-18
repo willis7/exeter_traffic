@@ -49,7 +49,11 @@ for i, name in enumerate(file_string):
 
             map.plot(x, y, 'o', color = markercolor, markersize=markersize*200)
 
-        plt.title('Relative AADF for %s%s'%(m,name_string_text[i]))    
+        plt.title('Relative AADF for %s%s'%(m,name_string_text[i]))
+
+        directory = "../plots/maps"
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
         fig = plt.gcf()
         fig.savefig('../plots/maps/colorExeter_%s%s.png'%(m,name), dpi=150)

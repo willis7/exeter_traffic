@@ -4,6 +4,7 @@
 
 
 import pandas as pd
+import os
 import numpy as np
 import seaborn as sns 
 import statsmodels.api as sm
@@ -39,33 +40,25 @@ for transport_type in transport:
     
     plt.plot(f.fittedvalues,'--')
 
-    plt.fill_between(data_group.index, (data_group['mean'] + data_group['std']), 
-                 (data_group['mean'] - data_group['std']), color = 'b', alpha = 0.2) 
-    
     # Annotate with the slope and confidence interval
     
     # to place the point half way up the page, take the maximum y value and /2
-    plot_y_slope = (max(data_group['mean']) + max(data_group['std']))*0.9
+    plot_y_slope = (max(data_group['mean']))*0.98
     # to place the point half way up the page, take the maximum y value and /2
-    plot_y_r = (max(data_group['mean']) + max(data_group['std']))*0.8
+    plot_y_r = (max(data_group['mean']))*0.88
     # to place the point half way up the page, take the maximum y value and /2
-    plot_y_conf = (max(data_group['mean']) + max(data_group['std']))*0.7
-    
-    
-    
+    plot_y_conf = (max(data_group['mean']))*0.8
+
     print(f.summary)
-     
-    
-    
+
+
     # Annotate with the slope and confidence interval
-    #plt.text(2000,int(plot_y_slope),"slope = %s"%str(round(f.params[0],3)))
-    plt.text(2000,int(plot_y_r),"$r^2$ = %s"%str(round(f.rsquared,3))) 
-    plt.text(2000,int(plot_y_conf),"conf_int = %s - %s"%(str(round(f.conf_int()[0][0],3)), 
-                                                         str(round(f.conf_int()[1][0],3))))
+    plt.text(0,0.8, "$r^2$ = %s" % str(round(f.rsquared, 3)), transform = ax.transAxes, verticalalignment = 'center' )
+
     fig = ax.get_figure()
     
     directory = "../plots/tseries"
     if not os.path.exists(directory):
-        os.makedirs(directory
+        os.makedirs(directory)
 
     fig.savefig('../plots/tseries/%s_tseries.png'%transport_type)

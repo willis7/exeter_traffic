@@ -3,6 +3,7 @@
 # Exeter_city_only.csv csv
 
 import pandas as pd
+import os
 import numpy as np
 import seaborn as sns 
 import matplotlib.pyplot as plt
@@ -42,6 +43,8 @@ for year in years:
         os.makedirs(directory)
 
     fig.savefig('../plots/barplots/all_roads/eachCP_%s.png'%str(year))
+    plt.clf()
+
 
     # Perhaps we just want to focus on the smaller roads in Exeter. Lets drop rows with M5 or 
     exeter_outer = exeter_year[(exeter_year.index == "M5") | (exeter_year.index == "A30")]
@@ -63,7 +66,9 @@ for year in years:
         os.makedirs(directory)
     
     fig.savefig('../plots/barplots/inner_roads/inner_barplot%s.png'%str(year))
-    
+    plt.clf()
+
+
     # Outer
     group_outer = exeter_outer.groupby(exeter_outer.index).mean()
     
@@ -76,10 +81,12 @@ for year in years:
     
     directory = "../plots/barplots/outer_roads"
     if not os.path.exists(directory):
-        os.makedirs(directory
+        os.makedirs(directory)
     
     fig.savefig('../plots/barplots/outer_roads/outer_barplot%s.png'%str(year))
-    
+    plt.clf()
+
+
     # Group all roads
     group_year = exeter_year.groupby(exeter_year.index).mean()
     
@@ -89,10 +96,11 @@ for year in years:
     
     directory = "../plots/barplots/all_roads"
     if not os.path.exists(directory):
-        os.makedirs(directory
+        os.makedirs(directory)
   
     fig.savefig('../plots/barplots/all_roads/each_road_barplot%s.png'%str(year))
-    
+
+    plt.clf()
     # Make a plot normalised over each road. 
    
     

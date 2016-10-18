@@ -1,15 +1,16 @@
 # This script creates the Coloured maps which simply compares total flow from all
 # types of vehicles between roads. Different roads are distinguished by different colours.
+import os
 import pandas as pd
 import numpy as np
-import seaborn as sns 
+import seaborn as sns
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
 from mpl_toolkits.basemap import Basemap
 
 
-file_string = ['2014','_in2014','_out2014']
-name_string_text = ['','inner','outer']
+file_string = ['2014']
+name_string_text = ['']
 
 for i, name in enumerate(file_string):
     # import my normalised coordinate data
@@ -19,7 +20,7 @@ for i, name in enumerate(file_string):
     colors = ['b','g','r','indianred','orange','purple','yellow','fuchsia']
 
     for i,m in enumerate(mode):
-	
+
         fig = plt.figure(figsize=(8,8))
 
         map = Basemap(projection='merc', lat_0 = 57, lon_0 = -135,
@@ -27,7 +28,7 @@ for i, name in enumerate(file_string):
                       llcrnrlon=-3.57, llcrnrlat=50.67,
                       urcrnrlon=-3.45, urcrnrlat=50.75)
 
-        map.readshapefile('../data/roads', 'osm_roads')    
+        map.readshapefile('../data/roads', 'osm_roads')
 
         map.drawcoastlines()
         map.drawcountries()
@@ -41,10 +42,10 @@ for i, name in enumerate(file_string):
             x,y = map(lon, lat)
 
             markersize = road_coords[m+"%"][road_coords["CP"] == CP].tolist()[0]
-	    
+
             colors = {'A379':'b','M5':'g','A377':'r',
                       'A376':'orange','A30':'purple','A3015':'yellow'}
-	    
+
             markercolor = colors[road_coords["Road"][road_coords["CP"] == CP].tolist()[0]]
 
             map.plot(x, y, 'o', color = markercolor, markersize=markersize*200)

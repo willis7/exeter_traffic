@@ -2,7 +2,7 @@ name: exeter_traffic
 dependencies:
 - _nb_ext_conf=0.3.0=py35_0
 - anaconda-client=1.5.1=py35_0
-- appnope=0.1.0=py35_0
+# - appnope=0.1.0=py35_0
 - basemap=1.0.7=np111py35_0
 - clyent=1.2.2=py35_0
 - cycler=0.10.0=py35_0
@@ -24,7 +24,7 @@ dependencies:
 - libpng=1.6.22=0
 - markupsafe=0.23=py35_2
 - matplotlib=1.5.3=np111py35_0
-- mistune=0.7.3=py35_1
+# - mistune=0.7.3=py35_1
 - mkl=11.3.3=0
 - nb_anacondacloud=1.2.0=py35_0
 - nb_conda=2.0.0=py35_0
@@ -48,7 +48,7 @@ dependencies:
 - pyqt=5.6.0=py35_0
 - python=3.5.2=0
 - python-dateutil=2.5.3=py35_0
-- python.app=1.2=py35_4
+# - python.app=1.2=py35_4
 - pytz=2016.6.1=py35_0
 - pyyaml=3.12=py35_0
 - pyzmq=15.4.0=py35_0
@@ -84,4 +84,3 @@ dependencies:
   - nb-conda-kernels==2.0.0
   - prompt-toolkit==1.0.3
 prefix: /Users/rbyrne/miniconda3/envs/exeter_traffic
-

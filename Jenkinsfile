@@ -23,4 +23,9 @@ node {
 
       // Set the run environment
       sh 'conda env create -f environment.yml'
+      sh 'source activate exeter_traffic'
+
+   stage 'lint'
+
+      sh 'pylint scripts/'
 }

@@ -19,13 +19,19 @@ node {
       // Get the latest code
       checkout scm
 
-   stage 'conda bootstrap'
+      // Setup conda
+      sh 'hash -r'
+      sh 'conda config --set always_yes yes --set changeps1 no'
+      sh 'conda update -q conda'
+      sh 'conda info -a'
 
-      // Set the run environment
+   stage 'build'
       sh 'conda env create -f environment.yml'
-      sh 'source activate exeter_traffic'
+      sh '''. activate exeter_traffic
+            python scripts/make_relative_csv.py'''
 
    stage 'lint'
-
-      sh 'pylint scripts/'
+      sh "conda create -q -n test-environment python=${PYTHON_VERSION} pylint"
+      sh '''. activate test-environment
+            pylint scripts'''
 }

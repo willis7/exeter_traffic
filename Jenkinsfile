@@ -34,11 +34,23 @@ node {
         sh 'conda env create -f environment.yml'
         sh '''. activate exeter_traffic
             cd scripts
-            python make_relative_csv.py
-            python plot_relative_maps.py
-            python plot_color_maps.py
-            python plot_timeseries.py
-            python plot_barplots.py'''
+            python make_relative_csv.py'''
+
+        // Run the jobs in parallel to improve build times
+        parallel (
+             map1: { sh '''. activate exeter_traffic
+                        cd scripts
+                        python plot_relative_maps.py''' },
+             map2: { sh '''. activate exeter_traffic
+                        cd scripts
+                        python plot_color_maps.py''' },
+             map3: { sh '''. activate exeter_traffic
+                        cd scripts
+                        python plot_timeseries.py''' },
+             map4: { sh '''. activate exeter_traffic
+                        cd scripts
+                        python plot_barplots.py''' }
+           )
 
     stage 'lint'
         // We know this has the potential to fail, so we wrap it in a catchError block.

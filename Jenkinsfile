@@ -1,8 +1,10 @@
 node {
+    def PYTHON_VERSION = "3.5"
+    def CONDA_VERSION = "4.1.11"
     stage 'setup'
 
         // Download the miniconda tool
-        sh 'curl https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o miniconda.sh'
+        sh "curl https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -o miniconda.sh"
 
         // Make the tool executable
         sh 'chmod +x ./miniconda.sh'

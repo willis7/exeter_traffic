@@ -44,8 +44,10 @@ node {
         catchError {
             sh "conda create -q -n test-environment python=${PYTHON_VERSION} pylint"
             sh '''. activate test-environment
-                pylint scripts'''
+                pylint scripts --output-format=html > lint.html'''
         }
+
+        publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '', reportFiles: 'lint.html', reportName: 'Linting Report'])
 
     stage 'archive'
       archiveArtifacts artifacts: 'plots/barplots/**/*.png,plots/maps/**/*.png,plots/tseries/*.png', caseSensitive: false, fingerprint: true

@@ -38,11 +38,15 @@ node {
             python plot_timeseries.py
             python plot_barplots.py'''
 
-    stage 'archive'
-          archiveArtifacts artifacts: 'plots/barplots/**/*.png,plots/maps/**/*.png,plots/tseries/*.png', caseSensitive: false, fingerprint: true
-
     stage 'lint'
-        sh "conda create -q -n test-environment python=${PYTHON_VERSION} pylint"
-        sh '''. activate test-environment
-            pylint scripts'''
+        // We know this has the potential to fail, so we wrap it in a catchError block.
+        // Doing this allows us to proceed to the archive task
+        catchError {
+            sh "conda create -q -n test-environment python=${PYTHON_VERSION} pylint"
+            sh '''. activate test-environment
+                pylint scripts'''
+        }
+
+    stage 'archive'
+      archiveArtifacts artifacts: 'plots/barplots/**/*.png,plots/maps/**/*.png,plots/tseries/*.png', caseSensitive: false, fingerprint: true
 }
